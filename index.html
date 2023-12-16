@@ -1,75 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<title>KRat.co.uk</title>
-	<link rel="stylesheet" href="css/normalize.css">
+	<title>Kris Ratcliffe</title>
 	<link rel="stylesheet" href="css/style.css">
-	<script defer src="js/fontawesome-all.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </head>
 
 <body>
-<div id="header">
-  
-<a id='social3' href="https://www.linkedin.com/in/kris-ratcliffe-22981873/" target="_blank"> <i class="fab fa-linkedin-in"></i></a> 
 
-<span>KRat.co.uk</span>
+	<style>
 
+	</style>
 
 
-</div>
-<nav>
-	<ul id="mainNav">
-		<li class="active"><a href="#home">Home</a></li>
-		<li><a href="#work">Work</a></li>
-		<li><a href="#projects">Projects</a></li>
-		<li><a href="#contact">Contact</a></li>    
-	</ul>
-</nav>
-<section id="home" data-sr>
-	<h2>Home</h2>
-</section>
+	<div class="grid-container">
+		<div class="item1">
+			<a id='social3' href="https://www.linkedin.com/in/kris-ratcliffe-22981873/" target="_blank"> <i
+					class="fa-brands fa-linkedin-in"></i></a>
 
-<section id="work" >
-<object data="img/bpp-logo-only.svg" type="image/svg+xml"></object>
-		<h2>Work</h2>
-		<div id="sectionContent">
-			<div id='sectionContentHeader1'></div>
-			<div id='sectionContentHeader2'></div>
-				<br>
-				<p>I am employed as the Digital Development Lead at BPP Learning Media in Manchester.</p>
-				
-				<p>As part of the Learning Media team we create and maintain BPP's online educational environments, implementing web courses and assessments for both internal use and external clients.</p>
-		</div>	
-</section>
+		</div>
+		<div class="item2">
+			<div id="mainHeader">
+				<h2>K<div class="titleGlow">ris</div> Rat<div class="titleGlow">cliffe</div>
+				</h2>
+			</div>
+		</div>
+		<div class="item3">
+			<nav>
+				<ul id="mainNav">
+					<li class="active"><a href="#"><i class="fa-solid fa-house"></i></a></li>
+					<li><a href="#"><i class="fa-solid fa-briefcase"></i></a></li>
+					<li><a href="#"><i class="fa-solid fa-laptop-code"></i></a></li>
+					<li><a href="#"><i class="fa-solid fa-inbox"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="item4">
+			<div id="sectionContent">
+				<div id='sectionContentHeader1'></div>
+				<div id='sectionContentHeader2'></div>
+				<div id='sectionContentText'>
+					<p>Welcome to my site!</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<section id="projects">
-<object data="img/clipboard.svg" type="image/svg+xml"></object>
-		<h2>Projects</h2>
-		<div id="sectionContent">
-			<div id='sectionContentHeader1'></div>
-			<div id='sectionContentHeader2'></div>
-				<br>
-				<p>Currently nothing public, so [WIP]. Sorry.</p>
-		</div>	
-</section>
+	<script src='js/jquery.min.js'></script>
+	<script>
+		var contentJSON = {
 
-<section id="contact">
-<object data="img/envelope.svg" type="image/svg+xml"></object>
-		<h2>Contact</h2>
-		<div id="sectionContent">
-			<div id='sectionContentHeader1'></div>
-			<div id='sectionContentHeader2'></div>
-				<br>				
-				<p>For work related queries, you can visit my LinkedIn profile above.</p>
-				<p>Please be aware that I am not directly involved in purchasing or hiring at BPP, and any such queries will be ignored.</p>
-		</div>	
-</section>
+			"pages": [{
+				"title": 'K<div class="titleGlow">ris</div> Rat<div class="titleGlow">cliffe</div>',
+				"content": "<p>Welcome to my site!</p>"
+			}, {
+				"title": "Work",
+				"content": "<p>I am employed as the Digital Development Lead at BPP Learning Media in Manchester.</p><p>As part of the Learning Media team we create and maintain BPP's online educational environments, implementing web courses and assessments for both internal use and external clients.</p>"
+			}, {
+				"title": "Projects",
+				"content": "<p>Currently nothing public, so [WIP]. Sorry.</p>"
+			}, {
+				"title": "Contact",
+				"content": "<p>For work related queries, you can visit my LinkedIn profile above.</p> <p>Please be aware that I am not directly involved in purchasing or hiring at BPP, and any such queries will be ignored.</p>"
+			}]
 
-<script src='js/jquery.min.js'></script>
-<script src="js/index.js"></script>
+		}
 
+
+
+		$("#mainNav li a").on('click', function () {
+			currentItem = $(this).parent().index();
+			$("#mainNav li").removeClass("active")
+			$(this).parent().addClass("active")
+			$("#mainHeader h2").html(contentJSON.pages[currentItem].title)
+			$("#sectionContentText").html(contentJSON.pages[currentItem].content)
+		});
+	</script>
 
 
 
